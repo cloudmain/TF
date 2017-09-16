@@ -1,0 +1,24 @@
+<head>
+	<script>
+		function calcula(operacion){
+			var operando1 = document.calc.operando1.value
+			var operando2 = document.calc.operando2.value
+			var resultado = eval(operando1 + operacion + operando2)
+			document.calc.resultado.value= resultado
+		}
+	</script>
+</head>
+
+<form name="calc">
+	<input type="Text" name="operando1" value="0" size="12"> 
+	<br>
+	<input type="Text" name="operando2" value="0" size="12"> 
+	<br>
+
+<input type="Button" name="" value=" + " onclick="calcula('+')">
+<input type="Button" name="" value=" - " onclick="calcula('-')">
+<input type="Button" name="" value=" x " onclick="calcula('*')">
+<input type="Button" name="" value=" / " onclick="calcula('/')">
+<br>
+<input type="Text" name="resultado" value="0" size="12">
+</form>
