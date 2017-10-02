@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Dados</title>
+  <style>
+td {
+  width: 30px;
+  height: 30px;
+}
+
+button {
+  margin-left: 30px;
+  margin-bottom: 10px;
+}
+  </style>
+  <script>
+function lanzar() {
+  var valor1 = Math.floor(Math.random()*6+1);
+  var valor2 = Math.floor(Math.random()*6+1);
+  var dado1 = {
+    1: [4],
+    2: [0, 8],
+    3: [0, 4, 8],
+    4: [0, 2, 6, 8],
+    5: [0, 2, 4, 6, 8],
+    6: [0, 2, 3, 5, 6, 8],
+  };
+  pintar1(dado1[valor1]);
+  pintar2(dado1[valor2]);
+  victoria(valor1,valor2);
+}
+function pintar1(items) {
+  for (var i=0; i<9; i++) {
+    var celda1 = document.getElementById('d'+i + "");
+    celda1.innerHTML = "";
+  }
+  for (var i=0; i<items.length; i++) {
+    var celda1 = document.getElementById('d'+items[i] + "");
+    celda1.innerHTML = "°";   
+  }
+}
+
+function pintar2(items) {
+  for (var i=0; i<9; i++) {
+    var celda2 = document.getElementById('t'+i + "");
+    celda2.innerHTML = "";
+  }
+  for (var i=0; i<items.length; i++) { 
+    var celda2 = document.getElementById('t'+items[i] + "");
+    celda2.innerHTML = "°";   
+  }
+
+function victoria(val1,val2){
+  if(val1>val2){
+    greeting ="El jugador 1 gano";
+  }
+  if(val1<val2){
+    greeting ="El jugador 2 gano";
+  }
+  else
+    greeting ="Empate";
+}
+
+  </script>
+</head>
+<body>
+  <button onclick="lanzar();">Lanzar</button>
+  <table  border="1px">
+    <tr>
+      <td id="d0"></td>
+      <td id="d1"></td>
+      <td id="d2"></td>
+    </tr>
+    <tr>
+      <td id="d3"></td>
+      <td id="d4"></td>
+      <td id="d5"></td>
+    </tr>
+    <tr>
+      <td id="d6"></td>
+      <td id="d7"></td>
+      <td id="d8"></td>
+    </tr>
+  </table>
+  <table  border="1px">
+    <tr>
+      <td id="t0"></td>
+      <td id="t1"></td>
+      <td id="t2"></td>
+    </tr>
+    <tr>
+      <td id="t3"></td>
+      <td id="t4"></td>
+      <td id="t5"></td>
+    </tr>
+    <tr>
+      <td id="t6"></td>
+      <td id="t7"></td>
+      <td id="t8"></td>
+    </tr>
+  </table>
+</body>
+</html>
